@@ -12,6 +12,47 @@ import java.util.Scanner;
  */
 public class Main {
     
+    public static String[] alunos = new String[2];
+    
+    public static void adicionarAlunos(){
+        
+        Scanner teclado = new Scanner(System.in);
+        
+        boolean laco = true;
+        int $i = 0;
+        
+        while(laco == true){
+            
+            int continuar;
+            
+            System.out.println("Por favor insira o nome do aluno:");
+            
+            alunos[$i] = teclado.next();
+            
+            System.out.println("Desejar adicionar um novo aluno? [1] - Sim | [2] - Não");
+            
+            continuar = teclado.nextInt();
+            
+            $i ++;
+
+            if(continuar == 2){
+                laco = false;
+                gerenciarAlunosSubMenu();
+            }
+        }
+        
+    }
+    
+    public static void exibirAlunos(){
+        
+        for(int $i = 0; $i < alunos.length; $i++){
+            System.out.println(alunos[$i]);
+        }
+        
+        gerenciarAlunosSubMenu();
+        
+    }
+    
     public static void sair(){
         System.exit(0);
     }
@@ -19,21 +60,21 @@ public class Main {
     public static void gerenciarAlunosSubMenu(){
         Scanner teclado = new Scanner(System.in);
         
-        System.out.println("|--------------------------------------------------------------------------|");
-        System.out.println("|------------------------     Gerenciar Alunos       ----------------------|");
-        System.out.println("|--------------------------------------------------------------------------|");
-        System.out.println("| [1] - Adicionar aluno [2] - Editar Aluno [3]- Remover Aluno [4] - Voltar |");
-        System.out.println("|--------------------------------------------------------------------------|");
+        System.out.println("|---------------------------------------------------------------------------|");
+        System.out.println("|------------------------     Gerenciar Alunos       -----------------------|");
+        System.out.println("|---------------------------------------------------------------------------|");
+        System.out.println("| [1] - Adicionar alunos [2] - Ver Alunos [3] - Editar Aluno [4]- Remover Aluno [5] - Voltar |");
+        System.out.println("|---------------------------------------------------------------------------|");
     
         int opcao = teclado.nextInt();
         
         switch(opcao){
             case 1:
-                main(null);
+                adicionarAlunos();
                 break;
             
             case 2:
-                main(null);
+                exibirAlunos();
                 break;
             
             case 3:
